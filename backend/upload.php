@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 
     $upload_dir = __DIR__ . '/uploads/';
     
-    // Create uploads directory if it doesn't exist
+
     if (!is_dir($upload_dir)) {
         if (!mkdir($upload_dir, 0777, true)) {
             die("Failed to create upload directory.");
@@ -29,9 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
     $file_name = basename($file['name']);
     $file_path = $upload_dir . $file_name;
 
-    // Move the uploaded file
     if (move_uploaded_file($file['tmp_name'], $file_path)) {
-        // Save relative path for database
         $relative_path = 'uploads/' . $file_name;
 
         $stmt = $conn->prepare("INSERT INTO files (file_name, file_path, uploaded_at) VALUES (?, ?, NOW())");
@@ -40,9 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
         $stmt->close();
 
         echo "File uploaded and saved successfully.";
+
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = '/frontend/index.php'; // Change to your desired page URL
+                }, 4000); // Redirect after 4 seconds
+              </script>";
     } else {
         echo "Failed to move uploaded file.";
     }
 } else {
     echo "No file uploaded.";
 }
+?>

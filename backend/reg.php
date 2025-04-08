@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
         die($validation_result);
     }
 
-
     $check_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $check_stmt->bind_param("s", $email);
     $check_stmt->execute();
@@ -33,6 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
 
     if ($stmt->execute()) {
         echo "Lietotājs veiksmīgi reģistrēts!";
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = '/frontend/index.php'; // Change to your registration page URL
+                }, 4000); // 4000 milliseconds = 4 seconds
+              </script>";
     } else {
         echo "Reģistrācija neizdevās: " . $stmt->error;
     }

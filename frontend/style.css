@@ -4,6 +4,7 @@ body {
     padding: 20px;
 }
 form {
+    display: flex;
     margin-bottom: 20px;
 }
 input {

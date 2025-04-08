@@ -30,5 +30,8 @@ while ($row = $result->fetch_assoc()) {
     }
 
     echo "</div>";
-}
-?>
+}?>
+<link rel="stylesheet" type="text/css" href="/frontend/style.css">
+<form action="/frontend/index.php" method="GET">
+            <button type="submit">Home</button>
+
