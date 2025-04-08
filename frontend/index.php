@@ -20,5 +20,12 @@
         <input type="file" name="file" required>
         <button type="submit">Upload</button>
     </form>
+
+    <h2>Files</h2>
+    <form action="/backend/take.php" method="GET">
+        <button type="submit">Download File</button>
+    </form>
+
+
 </body>
 </html>
