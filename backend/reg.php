@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
         echo "Lietotājs veiksmīgi reģistrēts!";
         echo "<script>
                 setTimeout(function() {
-                    window.location.href = '/frontend/index.php'; // Change to your registration page URL
+                    window.location.href = '/frontend/index.php'; 
                 }, 4000); // 4000 milliseconds = 4 seconds
               </script>";
     } else {

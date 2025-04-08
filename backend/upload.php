@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 
         echo "<script>
                 setTimeout(function() {
-                    window.location.href = '/frontend/index.php'; // Change to your desired page URL
+                    window.location.href = '/frontend/index.php'; 
                 }, 4000); // Redirect after 4 seconds
               </script>";
     } else {
